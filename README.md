@@ -1,4 +1,4 @@
-# Stake Casino
+# Hangman
 <p align="center">
   <img src="Hangman.png" alt="Hangman Logo" style="border: 5px dashed red; width: 400px;" />
 </p>
