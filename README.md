@@ -12,7 +12,7 @@ git clone https://github.com/BekzodDjumanov/Hangman.git
 
 ### Navigate to PD
 ```
-cd Main
+cd Hangman
 ```
 
 ### Compile
