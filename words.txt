@@ -13,3 +13,4 @@ frivolous
 catacombs
 tapestries
 infinitesimal
+bequeath
