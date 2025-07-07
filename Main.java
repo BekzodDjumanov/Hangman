@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Random;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 
 public class Main{
@@ -14,12 +16,16 @@ public class Main{
         ArrayList<String> words = new ArrayList<>();
         int guesses = 0;
         String word;
+        int score = 300;
 
         try(BufferedReader reader = new BufferedReader(new FileReader("words.txt"))){
             String line;
             while ((line = reader.readLine()) != null){
                 words.add(line);
             }
+        }
+        catch(FileNotFoundException e){
+            System.out.println("File could not be read.");
         }
         catch(IOException e){
             System.out.println("Error.");
@@ -33,6 +39,9 @@ public class Main{
         System.out.println("*************************");
         System.out.println("Welcome to Java Hangman!");
         System.out.println("*************************");
+        System.out.printf("Current Score: %d\n", score);
+        System.out.println("*************************");
+
 
         System.out.print("Word: ");
         for (char i: wordState){
@@ -65,6 +74,8 @@ public class Main{
             else{
                 System.out.println("\nIncorrect Guess, " + (5 - guesses) + " remaining");
                 guesses++;
+                score -= 50;
+                System.out.printf("Score Decreased: %d\n", score);
             }
             if(!wordState.contains('_')){
                 break;
@@ -83,6 +94,7 @@ public class Main{
             System.out.println("You won!");
         }
         System.out.printf("\nThe word was %s", word);
+        System.out.printf("\nScore Result: %d", score);
         scanner.close();
     }
     static String getHangmanArt(int guesses){
